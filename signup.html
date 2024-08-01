@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zara</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="images/icon1.webp">
+    <ul class="loginul">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="bag.html">Shopping Bag</a></li>
+    </ul>
+
+    <script>
+        // vector to store user accounts in memory
+        var userAccounts = [];
+        function checkAccount(email) {
+            for (var i = 0; i < userAccounts.length; i++) {
+                if (userAccounts[i].email === email) {
+                    alert('You already have an account. Please login instead.');
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function validateForm() {
+            var firstName = document.querySelector('input[placeholder="First name"]').value;
+            var lastName = document.querySelector('input[placeholder="Last name"]').value;
+            var email = document.querySelector('input[type="email"]').value;
+            var password = document.querySelector('input[type="password"]').value;
+
+            // Check if any field is empty
+            if (firstName === "" || lastName === "" || email === "" || password === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            // Check if the user already has an account
+            for (var i = 0; i < userAccounts.length; i++) {
+                if (userAccounts[i].email === email) {
+                    alert('You already have an account. Please login instead.');
+                    return false;
+                }
+            }
+
+            // Store the user account in memory
+            userAccounts.push({ firstName: firstName, lastName: lastName, email: email, password: password });
+
+            alert('Account created successfully!');
+
+            return true;
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="outerdiv">
+        <div class="logindiv">
+            <div class="divgreen"></div>
+            <div>
+                <h1 class="loginzara">ZARA - sign up</h1>
+                <form action="index.html" class="logininfo" onsubmit="return validateForm()">
+                    <h3>First name</h3>
+                    <input type="text" placeholder="First name">
+                    <h3>Last name</h3>
+                    <input type="text" placeholder="Last name">
+                    <h3>Email</h3>
+                    <input type="email" placeholder="Email">
+                    <h3>Password</h3>
+                    <input type="password" placeholder="Password">
+                    <input class="submit" type="submit" value="Sign up">
+                    <h4 style="text-align: center;">Have an account? <a href="login.html">Login</a></h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

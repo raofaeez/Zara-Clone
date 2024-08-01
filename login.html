@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zara</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="images/icon1.webp">
+    <script>
+    function validateForm() {
+        var email = document.forms["loginForm"]["email"].value;
+        var password = document.forms["loginForm"]["password"].value;
+
+        // Check if email and password are filled out
+        if (email == "" || password == "") {
+            alert("Both fields must be filled out");
+            return false;
+        }
+        return true;
+    }
+</script>
+</head>
+
+<body>
+    <ul class="loginul">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="bag.html">Shopping Bag</a></li>
+    </ul>
+    <h1 class="heading">ZARA</h1>
+    <div class="outerdiv">
+
+        <div class="logindiv">
+
+            <div class="divgreen">
+            </div>
+            <div>
+                <form name="loginForm" action="index.html" class="logininfo" onsubmit="return validateForm()">
+                    <h3>Email</h3>
+                    <input type="email" name="email" placeholder="Email">
+                    <h3>Password</h3>
+                    <input type="password" name="password" placeholder="Password">
+                    <br>
+                    <input class="submit" type="submit" value="Login">
+                    <h4 style="text-align: center;">Don't have an account? <a href="signup.html">Sign up</a></h4>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
